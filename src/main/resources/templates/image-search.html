@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>URLs</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+        .image-grid li {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>List of Images</h1>
+    <ul class="image-grid">
+        <li th:each="imageUrl : ${imageUrls}">
+            <img th:src="${imageUrl}" alt="Image" />
+        </li>
+    </ul>
+</div>
+</body>
+</html>

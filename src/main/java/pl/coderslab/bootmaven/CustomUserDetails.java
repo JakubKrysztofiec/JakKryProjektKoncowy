@@ -1,9 +1,15 @@
 package pl.coderslab.bootmaven;
 
 import java.util.Collection;
+import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -50,6 +56,15 @@ public class CustomUserDetails implements UserDetails {
 
     public String getName() {
         return user.getName();
+    }
+
+    @Transactional
+    public List<String> getUserHistory(){
+        return user.getUserHistory();
+    }
+
+    public Long getUserId(){
+        return user.getId();
     }
 
 }

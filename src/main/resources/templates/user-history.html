@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User History</title>
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .image {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<h1>User History</h1>
+
+<div class="container">
+    <ul class="image-grid">
+        <li th:each="url : ${userHistory}">
+            <img th:src="${url}" alt="Image" />
+        </li>
+    </ul>
+</div>
+</body>
+</html>

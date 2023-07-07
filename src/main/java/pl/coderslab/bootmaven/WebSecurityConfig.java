@@ -19,14 +19,16 @@ public class WebSecurityConfig{
                 .authorizeHttpRequests((authorize) -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                 )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
-                        .defaultSuccessUrl("https://www.google.com", true)
-                )
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/register", "/process_register", "/webjars/bootstrap/css/bootstrap.min.css", "/webjars/jquery/jquery.min.js", "/webjars/bootstrap/js/bootstrap.min.js").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/", "/register", "/process_register", "/login", "/webjars/bootstrap/css/bootstrap.min.css", "/webjars/jquery/jquery.min.js", "/webjars/bootstrap/js/bootstrap.min.js")
+                        .permitAll().anyRequest().authenticated()
+                )
+                .formLogin((form) -> form
+                        .loginProcessingUrl("/login")
+                        .permitAll()
+                        .usernameParameter("email")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/userPanel")
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .logout((logout) -> logout.logoutUrl("/logout").permitAll());

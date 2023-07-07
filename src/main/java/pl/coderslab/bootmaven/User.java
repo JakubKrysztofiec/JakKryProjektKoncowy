@@ -1,11 +1,12 @@
 package pl.coderslab.bootmaven;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +29,8 @@ public class User {
     @Column(nullable = false, length = 20)
     private String name;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_history", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "url")
+    private List<String> userHistory = new ArrayList<>();
 }
