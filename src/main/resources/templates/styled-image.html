@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Styled Images</title>
+  <style>
+    .image-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .image-container img {
+      max-width: 400px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .caption {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<h1>Styled Images</h1>
+
+<div class="image-container">
+  <div>
+    <h2>Original Image</h2>
+    <img th:src="${imageUrl}" alt="Original Image">
+    <p class="caption">Caption for the Original Image</p>
+  </div>
+
+  <div>
+    <h2>Styled Image</h2>
+    <img th:src="${styledImage}" alt="Styled Image">
+    <p class="caption">Caption for the Styled Image</p>
+  </div>
+</div>
+</body>
+</html>

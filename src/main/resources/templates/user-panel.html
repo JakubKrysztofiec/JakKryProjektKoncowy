@@ -37,6 +37,15 @@
     .logout-btn {
       color: #fff;
       text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .delete-history-btn {
+      color: #fff;
+      text-decoration: none;
+      background-color: #e74c3c;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
 
     main {
@@ -102,13 +111,20 @@
 <body>
 <header>
   <div class="user-info">
-    <span class="username" th:text="${username}"></span>
+    <span class="username" th:text="${userName}"></span>
     <div class="history-btn">
       <a href="/user-history">View History</a>
     </div>
+    <div class="history-btn">
+      <a href="/select-history">Select History</a>
+    </div>
   </div>
-  <a class="logout-btn" href="/logout">Logout</a>
+  <div>
+    <a class="delete-history-btn" href="/delete-prompt">Delete History</a>
+    <a class="logout-btn" href="/logout">Logout</a>
+  </div>
 </header>
+
 
 <main>
   <div class="search-container">

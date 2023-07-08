@@ -1,4 +1,4 @@
-package pl.coderslab.bootmaven;
+package pl.coderslab.bootmaven.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,4 +33,9 @@ public class User {
     @CollectionTable(name = "user_history", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "url")
     private List<String> userHistory = new ArrayList<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "select_history", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "url")
+    private List<String> selectHistory = new ArrayList<>();
 }

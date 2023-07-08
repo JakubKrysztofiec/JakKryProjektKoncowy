@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Delete History Confirmation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .confirmation {
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .confirmation h1 {
+      margin-bottom: 20px;
+    }
+
+    .confirmation-buttons {
+      margin-top: 20px;
+    }
+
+    .confirmation-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .confirmation-buttons button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="confirmation">
+  <h1>Are you sure you want to delete the history?</h1>
+  <div class="confirmation-buttons">
+    <a th:href="@{/delete-history}"><button>Yes</button></a>
+    <a th:href="@{/user-panel}"><button>No</button></a>
+  </div>
+</div>
+</body>
+</html>

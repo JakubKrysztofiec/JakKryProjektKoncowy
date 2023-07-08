@@ -1,6 +1,5 @@
-package pl.coderslab.bootmaven;
+package pl.coderslab.bootmaven.controller;
 
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.bootmaven.entity.User;
+import pl.coderslab.bootmaven.service.UserService;
 
 @Controller
 public class AppController {
@@ -24,7 +25,7 @@ public class AppController {
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
 
-        return "signup_form";
+        return "signup-form";
     }
 
     @PostMapping("/process_register")
@@ -35,15 +36,15 @@ public class AppController {
 
         userService.saveUser(user);
 
-        return "register_success";
+        return "register-success";
     }
 
-    @GetMapping("/userPanel")
+    @GetMapping("/user-panel")
     public String userPanel(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        model.addAttribute("username", username);
-        return "user_panel";
+        String userName = auth.getName();
+        model.addAttribute("userName", userName);
+        return "user-panel";
     }
 
 }

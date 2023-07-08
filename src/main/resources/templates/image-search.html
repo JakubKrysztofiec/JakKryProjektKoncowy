@@ -2,11 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>URLs</title>
+    <title>Image Search Result</title>
     <style>
+        h1 {
+            text-align: center;
+        }
+
         .container {
             text-align: center;
         }
+
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -14,7 +19,13 @@
             list-style: none;
             padding: 0;
         }
+
         .image-grid li {
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-grid li a {
             display: flex;
             justify-content: center;
         }
@@ -25,7 +36,9 @@
     <h1>List of Images</h1>
     <ul class="image-grid">
         <li th:each="imageUrl : ${imageUrls}">
-            <img th:src="${imageUrl}" alt="Image" />
+            <a th:href="@{'/image-styling-choice?imageUrl=' + ${imageUrl}}">
+                <img th:src="${imageUrl}" alt="Image" />
+            </a>
         </li>
     </ul>
 </div>

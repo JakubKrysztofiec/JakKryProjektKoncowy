@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Styling Choice</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .image-container img {
+      max-width: 400px;
+      max-height: 400px;
+    }
+
+    .dropdown {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .dropdown select {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Image Styling Choice</h1>
+
+  <div class="image-container">
+    <img id="imageUrl" th:src="${imageUrl}" alt="Image" th:data-url="${imageUrl}" />
+  </div>
+
+  <div class="dropdown">
+    <select id="styleSelect">
+      <option value="">Choose a style</option>
+      <option value="impressionism">Impressionism</option>
+      <option value="cubism">Cubism</option>
+      <option value="abstract">Abstract</option>
+      <option value="pointillism">Pointillism</option>
+      <option value="popart">Pop Art</option>
+      <option value="renaissance">Renaissance</option>
+      <option value="expressionism">Expressionism</option>
+      <option value="watercolor">Watercolor</option>
+      <option value="oil-painting">Oil Painting</option>
+      <option value="pencil-sketch">Pencil Sketch</option>
+    </select>
+  </div>
+
+  <div class="button-container">
+    <button onclick="redirectToImageStyling()">Apply Style</button>
+  </div>
+</div>
+
+<script>
+  function imageUrl() {
+
+  }
+
+  function redirectToImageStyling() {
+    const selectedStyle = document.getElementById("styleSelect").value;
+    const imageUrl = document.getElementById("imageUrl").getAttribute("data-url");
+
+    if (selectedStyle && imageUrl) {
+      window.location.href = '/image-styling?imageUrl=' + encodeURIComponent(imageUrl) + '&style=' + encodeURIComponent(selectedStyle);
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-package pl.coderslab.bootmaven;
+package pl.coderslab.bootmaven.controller;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.coderslab.bootmaven.entity.User;
+import pl.coderslab.bootmaven.service.UserService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ public class SearchController {
     public String showImageSearchPage(){
         return "image-search";
     }
+
     @GetMapping("/image-search")
     public String searchImages(@RequestParam("query") String query, Model model) {
 

@@ -28,7 +28,7 @@ public class WebSecurityConfig{
                         .permitAll()
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/userPanel")
+                        .defaultSuccessUrl("/user-panel")
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .logout((logout) -> logout.logoutUrl("/logout").permitAll());
